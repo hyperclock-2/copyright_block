@@ -1,0 +1,88 @@
+<?php
+/**
+ * @file
+ * ME25 Copyright module.
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function me25_copyright_block_info() {
+  $blocks['copyright'] = array(
+    'info' => t('Copyright Notice'),
+    'description' => t('Dynamic copyright years display'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function me25_copyright_block_view($delta = '') {
+  $block = array();
+  
+  if ($delta == 'copyright') {
+    $current_year = date('Y');
+    $start_year = variable_get('me25_copyright_start_year', '');
+    $show_range = variable_get('me25_copyright_show_range', TRUE);
+    $site_name = config_get('system.core', 'site_name');
+    
+    // Build copyright text based on settings
+    if ($show_range && !empty($start_year) && $current_year > $start_year) {
+      $years = "$start_year-$current_year";
+    } else {
+      $years = $current_year;
+    }
+    
+    $block['subject'] = '';
+    $block['content'] = array(
+      '#markup' => '<div class="me25-copyright">&copy; ' . $years . ' ' . $site_name . '</div>',
+    );
+  }
+  
+  return $block;
+}
+
+/**
+ * Implements hook_menu().
+ */
+function me25_copyright_menu() {
+  $items['admin/config/system/me25-copyright'] = array(
+    'title' => 'ME25 Copyright Settings',
+    'description' => 'Configure copyright notice settings.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('me25_copyright_settings_form'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Settings form for copyright.
+ */
+function me25_copyright_settings_form($form, &$form_state) {
+  $form['me25_copyright_show_range'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show year range'),
+    '#default_value' => variable_get('me25_copyright_show_range', TRUE),
+    '#description' => t('Show as "2020-2025". Uncheck to show only current year "2025".'),
+  );
+  
+  $form['me25_copyright_start_year'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Start Year'),
+    '#default_value' => variable_get('me25_copyright_start_year', ''),
+    '#description' => t('The first year your site was active. Leave empty to use only current year.'),
+    '#size' => 4,
+    '#maxlength' => 4,
+    '#states' => array(
+      'visible' => array(
+        ':input[name="me25_copyright_show_range"]' => array('checked' => TRUE),
+      ),
+    ),
+  );
+  
+  return system_settings_form($form);
+}

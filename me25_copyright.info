@@ -1,0 +1,6 @@
+name = ME25 Copyright
+description = Dynamic copyright notice block with configurable years.
+package = ME25 Toolbox
+type = module
+core = 1.x
+backdrop = 1.x
