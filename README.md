@@ -1,8 +1,3 @@
-Perfect! Let's create a professional README for your first Backdrop module. 
-
-## **README.md for ME25 Copyright Module**
-
-```markdown
 # ME25 Copyright
 
 ![Backdrop CMS](https://img.shields.io/badge/Backdrop-CMS-0073aa.svg)
