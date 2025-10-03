@@ -4,3 +4,4 @@ package = ME25 Toolbox
 type = module
 core = 1.x
 backdrop = 1.x
+version = 1.0.0
