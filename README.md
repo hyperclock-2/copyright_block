@@ -59,6 +59,12 @@ We welcome contributions! Please feel free to:
 - Create merge requests with improvements
 - Suggest better configuration options
 
+## 👤 Credits
+
+**Developed by Max Elements**  
+This is an original Backdrop CMS module, not a port from Drupal. 
+Built specifically for the Backdrop ecosystem as part of the ME25 Toolbox.
+
 ## 📄 License
 
 This project is licensed under the GPL-2.0-or-later License - see the [LICENSE](LICENSE) file for details.
