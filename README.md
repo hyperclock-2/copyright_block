@@ -1,10 +1,11 @@
-# ME25 Copyright
+# Copyright Block
 
 ![Backdrop CMS](https://img.shields.io/badge/Backdrop-CMS-0073aa.svg)
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![License](https://img.shields.io/badge/license-GPL--2.0--or--later-green.svg)
 
 A lightweight, configurable copyright notice block for Backdrop CMS that automatically updates years and provides flexible display options.
+
+**This module is a new module for Backdrop and while it is not a port of the Drupal module of the same name, it provides the same features and functionality that users may expect if they have used the Drupal module in Drupal 7 or above.**
 
 ## 🚀 Features
 
@@ -18,7 +19,7 @@ A lightweight, configurable copyright notice block for Backdrop CMS that automat
 
 1. Download and place in `modules/custom/` directory
 2. Enable at **Modules** (`admin/modules`)
-3. Configure at **Configuration → System → ME25 Copyright Settings** (`admin/config/system/me25-copyright`)
+3. Configure at **Configuration → System → Copyright Block Settings** (`admin/config/system/copyright-block`)
 4. Place block at **Structure → Block layout** (`admin/structure/block`)
 
 ## ⚙️ Configuration
@@ -41,11 +42,11 @@ A lightweight, configurable copyright notice block for Backdrop CMS that automat
 
 ### Template Override:
 Override the block output by creating:
-`templates/block--me25-copyright--copyright.tpl.php`
+`templates/block--copyright-block--copyright.tpl.php`
 
 ### CSS Styling:
 ```css
-.me25-copyright {
+.copyright-block {
   font-size: 0.9em;
   color: #666;
   text-align: center;
@@ -63,7 +64,7 @@ We welcome contributions! Please feel free to:
 
 **Developed by Max Elements**  
 This is an original Backdrop CMS module, not a port from Drupal. 
-Built specifically for the Backdrop ecosystem as part of the ME25 Toolbox.
+Built specifically for the Backdrop ecosystem as part of the Max Elements Toolbox.
 
 ## 📄 License
 
@@ -71,19 +72,19 @@ This project is licensed under the GPL-2.0-or-later License - see the [LICENSE](
 
 ## 🏢 About Max Elements
 
-ME25 Copyright is maintained by [Max Elements](https://max-elements.com/), providing premium web development and cybersecurity solutions.
+Copyright Block is maintained by [Max Elements](https://max-elements.com/), providing premium web development and cybersecurity solutions.
 
-## 🧰 ME25 Toolbox
+## 🧰 Max Elements Toolbox
 
-**ME25 Toolbox** represents Max Elements' commitment to building and maintaining quality Backdrop CMS modules and themes for the community. The "ME25" branding signifies our renewed focus on Backdrop development in 2025.
+**Max Elements Toolbox** represents our commitment to building and maintaining quality Backdrop CMS modules and themes for the community.
 
 This toolbox includes:
-- Essential utility modules (like Copyright and Language Switcher)
+- Essential utility modules (like Copyright Block and Language Switcher)
 - Professional themes
 - Client-proven solutions  
 - All maintained long-term as part of our business offerings
 
-ME25 Copyright is part of this ongoing initiative to contribute quality tools to the Backdrop ecosystem.
+Copyright Block is part of this ongoing initiative to contribute quality tools to the Backdrop ecosystem.
 
 ---
 

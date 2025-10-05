@@ -1,15 +1,15 @@
 <?php
 /**
  * @file
- * ME25 Copyright module.
+ * Copyright Block module.
  */
 
 /**
  * Implements hook_block_info().
  */
-function me25_copyright_block_info() {
+function copyright_block_info() {
   $blocks['copyright'] = array(
-    'info' => t('ME25 Copyright Notice'),
+    'info' => t('Copyright Notice'),
     'description' => t('Dynamic copyright years display'),
     'cache' => BACKDROP_CACHE_GLOBAL,
   );
@@ -19,12 +19,12 @@ function me25_copyright_block_info() {
 /**
  * Implements hook_block_view().
  */
-function me25_copyright_block_view($delta = '') {
+function copyright_block_view($delta = '') {
   $block = array();
   
   if ($delta == 'copyright') {
     // Load config values
-    $config = config('me25_copyright.settings');
+    $config = config('copyright_block.settings');
     $current_year = date('Y');
     $start_year = $config->get('start_year');
     $show_range = $config->get('show_range');
@@ -39,7 +39,7 @@ function me25_copyright_block_view($delta = '') {
     
     $block['subject'] = '';
     $block['content'] = array(
-      '#markup' => '<div class="me25-copyright">&copy; ' . $years . ' ' . $site_name . '</div>',
+      '#markup' => '<div class="copyright-block">&copy; ' . $years . ' ' . $site_name . '</div>',
     );
   }
   
@@ -49,12 +49,12 @@ function me25_copyright_block_view($delta = '') {
 /**
  * Implements hook_menu().
  */
-function me25_copyright_menu() {
-  $items['admin/config/system/me25-copyright'] = array(
-    'title' => 'ME25 Copyright Settings',
+function copyright_block_menu() {
+  $items['admin/config/system/copyright-block'] = array(
+    'title' => 'Copyright Block Settings',
     'description' => 'Configure copyright notice settings.',
     'page callback' => 'backdrop_get_form',
-    'page arguments' => array('me25_copyright_settings_form'),
+    'page arguments' => array('copyright_block_settings_form'),
     'access arguments' => array('administer site configuration'),
     'type' => MENU_NORMAL_ITEM,
   );
@@ -64,9 +64,9 @@ function me25_copyright_menu() {
 /**
  * Settings form for copyright.
  */
-function me25_copyright_settings_form($form, &$form_state) {
+function copyright_block_settings_form($form, &$form_state) {
   // Load config values
-  $config = config('me25_copyright.settings');
+  $config = config('copyright_block.settings');
   $show_range = $config->get('show_range');
   $start_year = $config->get('start_year');
   
@@ -103,8 +103,8 @@ function me25_copyright_settings_form($form, &$form_state) {
 /**
  * Form submit handler.
  */
-function me25_copyright_settings_form_submit($form, &$form_state) {
-  $config = config('me25_copyright.settings');
+function copyright_block_settings_form_submit($form, &$form_state) {
+  $config = config('copyright_block.settings');
   $config->set('show_range', $form_state['values']['show_range']);
   $config->set('start_year', $form_state['values']['start_year']);
   $config->save();

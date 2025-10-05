@@ -5,11 +5,11 @@ type = module
 core = 1.x
 backdrop = 1.x
 
-tags[] = ME25 Toolbox
+tags[] = Max Elements Toolbox
 
 ; Maintainer
 maintainers[hyperclock-2] = Max Elements
 maintainers_wanted = FALSE
 
 ; Configure your module
-configure = admin/config/system/me25-copyright
+configure = admin/config/system/copyright-block
