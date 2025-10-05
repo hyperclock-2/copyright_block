@@ -1,10 +1,11 @@
 name = ME25 Copyright
 description = Dynamic copyright notice block with configurable years.
-package = ME25 Toolbox  
+package = appearance  
 type = module
 core = 1.x
 backdrop = 1.x
 
+tags[] = ME25 Toolbox
 
 ; Maintainer
 maintainers[hyperclock-2] = Max Elements
