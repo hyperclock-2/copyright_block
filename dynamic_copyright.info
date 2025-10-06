@@ -1,13 +1,12 @@
 name = Dynamic Copyright
 description = Automatic copyright year updates with start year configuration. Part of Max Elements Toolbox.
-package = Utility
+package = System
 core = 1.x
 backdrop = 1.x
 
 tags[] = copyright
-tags[] = automatic  
-tags[] = years
-tags[] = utility
+tags[] = dates  
+tags[] = dates
 
 configure = admin/config/system/dynamic-copyright
 
